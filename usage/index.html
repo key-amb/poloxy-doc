@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="alternate" href="/index.xml" type="application/rss+xml" title="poloxy">
+		<link rel="icon" href="http://key-amb.github.io/poloxy-doc/favicon.ico">
+		<title>How to use Poloxy - poloxy</title>
+		
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/highlight/atelier-forest-dark.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/theme.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/bootie-docs.css">
+	</head>
+
+<body role="document">
+
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://key-amb.github.io/poloxy-doc/">poloxy</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li ><a href="http://key-amb.github.io/poloxy-doc/">Home</a></li>
+			
+				
+				
+					
+					<li ><a href="http://key-amb.github.io/poloxy-doc/introduction">Intro</a></li>
+				
+					
+					<li ><a href="http://key-amb.github.io/poloxy-doc/getting-started">Bootstrap</a></li>
+				
+					
+					<li class="active"><a href="http://key-amb.github.io/poloxy-doc/usage">Usage</a></li>
+				
+			
+				
+				</ul>
+				
+				<form class="navbar-form navbar-left" role="search" action="https://www.google.co.jp/search" method="get">
+					<div class="input-group doc-search-form">
+						<input type="hidden" name="as_sitesearch" value="key-amb.github.io/poloxy-doc">
+						<input type="text" name="as_q" class="search-query doc-search-input-text" placeholder="Search Site">
+						<span class="input-group-addon input-group-btn doc-search-input-btn">
+							<button class="btn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</nav>
+
+<div class="container">
+
+
+<div class="row">
+	<div class="col-sm-8 doc-main">
+		<main role="main">
+			<article>
+				<a id="title"></a>
+				<h1 class="doc-entry-title">How to use Poloxy</h1>
+				<div class="doc-entry-meta">
+					<span><time datetime="2016-05-14">May 14, 2016</time></span>
+				</div>
+				<section>
+					
+
+<h2 id="http-api-to-send-alerts:dc32fe45042973266ca60588597e0b66">HTTP API to send alerts</h2>
+
+<p>Endpoint: <code>POST /v1/item</code></p>
+
+<p>Parameters:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="center">Type</th>
+<th align="center">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">name</td>
+<td align="center">String</td>
+<td align="center">-</td>
+<td align="left">Name of alert. Used for message title. Should be unique in <em>&ldquo;group&rdquo;</em> to distinguish from others.</td>
+</tr>
+
+<tr>
+<td align="left">group</td>
+<td align="center">String</td>
+<td align="center"><code>default</code></td>
+<td align="left">Group to categorize alerts. Nested groups are supported with delimiter <code>/</code>.</td>
+</tr>
+
+<tr>
+<td align="left">level</td>
+<td align="center">Integer</td>
+<td align="center">1</td>
+<td align="left">Alert level. Higher is severer. Recommended to be lower than 10.</td>
+</tr>
+
+<tr>
+<td align="left">type</td>
+<td align="center">String</td>
+<td align="center">-</td>
+<td align="left">Method to deliver message to recipients</td>
+</tr>
+
+<tr>
+<td align="left">address</td>
+<td align="center">String</td>
+<td align="center">-</td>
+<td align="left">Recipient address</td>
+</tr>
+
+<tr>
+<td align="left">message</td>
+<td align="center">String</td>
+<td align="center">-</td>
+<td align="left">Message body of alert</td>
+</tr>
+
+<tr>
+<td align="left">misc</td>
+<td align="center">JSON</td>
+<td align="center">-</td>
+<td align="left">Additional parameters for message</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="available-delivery-types:dc32fe45042973266ca60588597e0b66">Available Delivery Types</h3>
+
+<h4 id="slack:dc32fe45042973266ca60588597e0b66"><code>Slack</code></h4>
+
+<p>Extends <code>HttpPost</code> to convert <code>message.body</code> to JSON format which is suitable for
+<a href="https://api.slack.com/incoming-webhooks">Slack Incoming WebHooks API</a>.</p>
+
+<h4 id="mail:dc32fe45042973266ca60588597e0b66"><code>Mail</code></h4>
+
+<p>Sends e-mail through configured SMTP server.<br />
+This type treats <code>message.address</code> as <em>mail-to</em>.</p>
+
+<p>You can add some additional parameters as <code>misc</code> contents:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">key</th>
+<th align="center">example</th>
+<th align="left">description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><code>mail.from</code></td>
+<td align="center"><code>&quot;foo@example.com&quot;</code></td>
+<td align="left">From of mail</td>
+</tr>
+
+<tr>
+<td align="left"><code>mail.cc</code></td>
+<td align="center"><code>&quot;foo@example.com,bar@example.com&quot;</code></td>
+<td align="left">Cc of mail</td>
+</tr>
+
+<tr>
+<td align="left"><code>mail.bcc</code></td>
+<td align="center"><code>&quot;foo@example.com,bar@example.com&quot;</code></td>
+<td align="left">Bcc of mail</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="httppost:dc32fe45042973266ca60588597e0b66"><code>HttpPost</code></h4>
+
+<p>Raw HTTP POST method which posts <code>message.body</code> as request body.</p>
+
+<h3 id="examples-of-curl-requests:dc32fe45042973266ca60588597e0b66">Examples of cURL Requests</h3>
+
+<p>Slack:</p>
+
+<pre><code>curl -X POST http://poloxy.yourdomain.com/v1/item -d '{
+    &quot;name&quot;: &quot;CPU&quot;,
+    &quot;group&quot;: &quot;generic/system-resource&quot;,
+    &quot;type&quot;: &quot;Slack&quot;,
+    &quot;level&quot;: &quot;3&quot;,
+    &quot;address&quot;: &quot;https://hooks.slack.com/services/XXXXXXXXXX&quot;,
+    &quot;message&quot;: &quot;CPU is WARNING 50%&quot;
+}'
+</code></pre>
+
+<p>Mail:</p>
+
+<pre><code>curl -X POST http://poloxy.yourdomain.com/v1/item -d '{
+    &quot;name&quot;: &quot;Error Rate&quot;,
+    &quot;group&quot;: &quot;web/rails-app&quot;,
+    &quot;type&quot;: &quot;Mail&quot;,
+    &quot;level&quot;: &quot;5&quot;,
+    &quot;address&quot;: &quot;developers@yourdomain.com,admin@yourdomain.com&quot;,
+    &quot;message&quot;: &quot;Error Rate is Over 5%&quot;,
+    &quot;misc&quot;: {
+        &quot;mail&quot;: {
+            &quot;from&quot;: &quot;alert@yourdomain.com&quot;,
+            &quot;cc&quot;: &quot;support@yourdomain.com&quot;,
+            &quot;bcc&quot;: &quot;poloxy-ops@yourdomain.com&quot;
+        }
+    }
+}'
+</code></pre>
+
+<h2 id="cli:dc32fe45042973266ca60588597e0b66">CLI</h2>
+
+<p>You can use <code>bin/poloxy-cli</code> for some manual tasks.</p>
+
+<p>Run <code>poloxy-cli help [command]</code> to see usage.</p>
+
+<h3 id="purge-expired-data:dc32fe45042973266ca60588597e0b66">Purge expired data</h3>
+
+<pre><code class="language-bash"># purge older than PERIOD
+poloxy-cli purge [--[t]ime=PERIOD]
+</code></pre>
+
+<p>Default <code>PERIOD</code> is determined by config param <code>data.default_keep_period</code>.</p>
+
+				</section>
+			</article>
+		</main>
+	</div> 
+
+	
+
+<div class="col-sm-3 col-sm-offset-1 doc-sidebar">
+	<div id="sidebar">
+	<div class="sidebar-module">
+		<div class="sidebar-toc">
+			<h4 class="sidebar-heading">Table of Contents</h4>
+			<ul>
+				<li><strong><a href="#title">How to use Poloxy</a></strong></li>
+			</ul>
+			<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#http-api-to-send-alerts:dc32fe45042973266ca60588597e0b66">HTTP API to send alerts</a>
+<ul>
+<li><a href="#available-delivery-types:dc32fe45042973266ca60588597e0b66">Available Delivery Types</a>
+<ul>
+<li><a href="#slack:dc32fe45042973266ca60588597e0b66"><code>Slack</code></a></li>
+<li><a href="#mail:dc32fe45042973266ca60588597e0b66"><code>Mail</code></a></li>
+<li><a href="#httppost:dc32fe45042973266ca60588597e0b66"><code>HttpPost</code></a></li>
+</ul></li>
+<li><a href="#examples-of-curl-requests:dc32fe45042973266ca60588597e0b66">Examples of cURL Requests</a></li>
+</ul></li>
+<li><a href="#cli:dc32fe45042973266ca60588597e0b66">CLI</a>
+<ul>
+<li><a href="#purge-expired-data:dc32fe45042973266ca60588597e0b66">Purge expired data</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		</div>
+	</div>
+	<div class="sidebar-module">
+		<h4 class="sidebar-heading">Pages in Categories</h4>
+		<ul class="sidebar-category-list">
+		
+			<li>
+				<a href="http://key-amb.github.io/poloxy-doc/categories/general">
+					<span class="doc-list-category">General</span>
+				</a>
+				<ul>
+					<li><a href="/poloxy-doc/introduction/">Introduction</a>
+					</li>
+				
+					<li><a href="/poloxy-doc/getting-started/">Getting Started</a>
+					</li>
+				
+					<li>
+						<span class="active">How to use Poloxy</span>
+						</li>
+				
+				</ul>
+			</li>
+		
+		</ul>
+	</div>
+	<div class="sidebar-module">
+		<h4 class="sidebar-heading">Tags</h4>
+		<div class="tag-box">
+		
+			<a class="tag-item" href="http://key-amb.github.io/poloxy-doc/tags/document">document</a>
+		
+		</div>
+	</div>
+	</div>
+</div>
+
+</div> 
+
+
+<hr />
+
+<div class="row">
+	<div class="col-sm-8">
+		<p class="doc-footer-em"><a href="#" onclick="resetSidebarPos()">Back to TOP</a></p>
+	</div>
+</div>
+
+</div> 
+
+<footer class="doc-footer">
+	<p class="doc-footer-em">Browse <strong><a href="https://github.com/key-amb/poloxy/">Repository</a></strong></p>
+	<p>Copyright (c) 2016, YASUTAKE Kiyoshi; All rights reserved.</p>
+	<p>Powered by <strong><a href="https://github.com/key-amb/hugo-theme-bootie-docs">Bootie Docs</a></strong> - theme for <a href="http://gohugo.io/">Hugo</a> by <a href="https://github.com/key-amb/">key-amb</a>.</p>
+</footer>
+
+
+
+<script src="http://key-amb.github.io/poloxy-doc/js/jquery.min.js"></script>
+<script src="http://key-amb.github.io/poloxy-doc/js/bootstrap.min.js"></script>
+
+<script src="http://key-amb.github.io/poloxy-doc/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="http://key-amb.github.io/poloxy-doc/js/ie10-viewport-bug-workaround.js"></script>
+<script src="http://key-amb.github.io/poloxy-doc/js/bootie-docs.js"></script>
+
+</body>
+</html>

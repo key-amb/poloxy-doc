@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>poloxy</title>
+    <link>http://key-amb.github.io/poloxy-doc/</link>
+    <description>Recent content on poloxy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2016, YASUTAKE Kiyoshi; All rights reserved.</copyright>
+    <lastBuildDate>Sat, 14 May 2016 14:48:15 +0900</lastBuildDate>
+    <atom:link href="http://key-amb.github.io/poloxy-doc/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>_index</title>
+      <link>http://key-amb.github.io/poloxy-doc/_index/</link>
+      <pubDate>Sat, 14 May 2016 14:48:15 +0900</pubDate>
+      
+      <guid>http://key-amb.github.io/poloxy-doc/_index/</guid>
+      <description>
+
+&lt;p&gt;Welcome to &lt;strong&gt;poloxy&lt;/strong&gt; documentation site!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Poloxy&lt;/strong&gt; is server-side proxy software for delivering system alerts.&lt;br /&gt;
+The project is public on &lt;a href=&#34;https://github.com/key-amb/poloxy&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;contents-of-documentation:3976528693a0108357f4928017600865&#34;&gt;Contents of Documentation&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;introduction&#34;&gt;Introduction&lt;/a&gt; &amp;hellip; Concept and overview. If you are new to
+&lt;strong&gt;poloxy&lt;/strong&gt;, recommended to read at first.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;getting-started&#34;&gt;Getting Started&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;usage&#34;&gt;How to use Poloxy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;authors:3976528693a0108357f4928017600865&#34;&gt;Authors&lt;/h2&gt;
+
+&lt;p&gt;YASUTAKE Kiyoshi &lt;a href=&#34;mailto:yasutake.kiyoshi@gmail.com&#34;&gt;yasutake.kiyoshi@gmail.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;license:3976528693a0108357f4928017600865&#34;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;The MIT License (MIT)&lt;/p&gt;
+
+&lt;p&gt;Copyright &amp;copy; 2016 YASUTAKE Kiyoshi&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>http://key-amb.github.io/poloxy-doc/introduction/</link>
+      <pubDate>Sat, 14 May 2016 15:38:27 +0900</pubDate>
+      
+      <guid>http://key-amb.github.io/poloxy-doc/introduction/</guid>
+      <description>
+
+&lt;h2 id=&#34;concept-of-poloxy:2767292a573dc549b9b4297b701af3ab&#34;&gt;Concept of &amp;ldquo;poloxy&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;The image bellow illustrates the concept of &lt;strong&gt;&amp;ldquo;poloxy&amp;rdquo;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;API&lt;/strong&gt; receives alerts from monitoring systems and enqueues them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Worker&lt;/strong&gt; summarizes alerts.&lt;/li&gt;
+&lt;li&gt;Worker delivers them to recipients.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It prevents bursting alerts flood to recipients&amp;rsquo; phones or any devices.&lt;/p&gt;
+
+&lt;div align=&#34;center&#34; style=&#34;border: 2px solid #aaa; padding: 10px;&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/key-amb/poloxy/resource/image/concept.png&#34; alt=&#34;poloxy-concept&#34;&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;components:2767292a573dc549b9b4297b701af3ab&#34;&gt;Components&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;API&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Receives alerts from monitoring systems and enqueues them&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Worker&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Dequeues alerts, summarizes them and delivers them to recipients&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web Dashboard&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Viewer for incoming alerts and delivered notifications&lt;/li&gt;
+&lt;li&gt;One can check original alerts on this dashboard&lt;/li&gt;
+&lt;li&gt;Integrated with &lt;strong&gt;API&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLI&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Utility tool for manual tasks such as data purge&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;public-resources:2767292a573dc549b9b4297b701af3ab&#34;&gt;Public Resources&lt;/h2&gt;
+
+&lt;h3 id=&#34;presentations:2767292a573dc549b9b4297b701af3ab&#34;&gt;Presentations&lt;/h3&gt;
+
+&lt;h4 id=&#34;2016-apr-28th-introduction-to-poloxy:2767292a573dc549b9b4297b701af3ab&#34;&gt;2016 Apr. 28th - &amp;ldquo;Introduction to poloxy&amp;rdquo;&lt;/h4&gt;
+
+&lt;p&gt;In &lt;a href=&#34;https://nishinipporirb.doorkeeper.jp/&#34;&gt;Nishi-Nippori.rb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div align=&#34;center&#34;&gt;
+&lt;a href=&#34;http://www.slideshare.net/YasutakeKiyoshi/introduction-to-poloxy-proxy-for-alerting&#34; target=&#34;_blank&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/key-amb/poloxy/resource/image/ninirb_20160428-screenshot.png&#34; alt=&#34;ninirb_20160428-screenshot&#34;&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>http://key-amb.github.io/poloxy-doc/getting-started/</link>
+      <pubDate>Sat, 14 May 2016 14:51:40 +0900</pubDate>
+      
+      <guid>http://key-amb.github.io/poloxy-doc/getting-started/</guid>
+      <description>
+
+&lt;h2 id=&#34;prerequisites:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ruby &amp;hellip; &lt;em&gt;v2.0.0&lt;/em&gt; or later&lt;/li&gt;
+&lt;li&gt;An RDBMS supported by &lt;a href=&#34;https://github.com/jeremyevans/sequel&#34;&gt;Sequel&lt;/a&gt; ORM
+
+&lt;ul&gt;
+&lt;li&gt;Tested by SQLite3 and developed with MySQL. Hopefully other RDBs will do.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;install:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;gem install bundler
+git clone https://github.com/key-amb/poloxy.git
+cd poloxy
+bundle install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or, you can get released revisions from &lt;a href=&#34;https://github.com/key-amb/poloxy/releases&#34;&gt;Releases&lt;/a&gt;
+pages.&lt;/p&gt;
+
+&lt;h2 id=&#34;configure:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Configure&lt;/h2&gt;
+
+&lt;h3 id=&#34;configuration-file:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Configuration File&lt;/h3&gt;
+
+&lt;p&gt;Default configuration file is &lt;code&gt;config/poloxy.toml&lt;/code&gt;.&lt;br /&gt;
+And this file is included in this repository as a sample.&lt;/p&gt;
+
+&lt;p&gt;You can change its path by &lt;code&gt;POLOXY_CONFIG&lt;/code&gt; environment variable.&lt;/p&gt;
+
+&lt;p&gt;Here are configuration items:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Item&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Type&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Default&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;log.level&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;INFO&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Log level for std-lib &lt;code&gt;Logger&lt;/code&gt; class&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;log.rotate&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;shift_age&lt;/code&gt; param for &lt;code&gt;Logger#new&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;log.file&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Path to log output file&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;deliver.min_interval&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Period&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;1 min&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Minimum interval period to deliver summarized alerts to recipients&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;deliver.item.merger&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;PerItem&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Method to summarize alerts. See following section.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;database.connect&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Hash&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Params to connect database. These params are passed to &lt;code&gt;Sequel#connect&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;smtp.host&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;localhost&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;SMTP server address used for &lt;code&gt;Mail&lt;/code&gt; delivery-type&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;smtp.port&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Integer&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;25&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;SMTP server port used for &lt;code&gt;Mail&lt;/code&gt; delivery-type&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;message.default_expire&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Period&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;2 hour&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Period to expire alerts. Expired alerts are taken as &amp;ldquo;CLEAR&amp;rdquo;.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;message.default_snooze&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Period&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;30 min&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Period to snooze alerts. See following section.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;data.default_keep_period&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Period&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;2 day&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Default period to hold data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;As for type &lt;em&gt;Period&lt;/em&gt;, natural time expressions are supported powered by
+&lt;a href=&#34;https://github.com/hpoydar/chronic_duration&#34;&gt;chronic_duration&lt;/a&gt;.&lt;br /&gt;
+Numeric expressions like &lt;code&gt;60&lt;/code&gt; are taken as seconds.&lt;/p&gt;
+
+&lt;h4 id=&#34;alerts-snoozing:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Alerts Snoozing&lt;/h4&gt;
+
+&lt;p&gt;When an alert occurs, subsequent alerts with the same (&lt;em&gt;group&lt;/em&gt;, &lt;em&gt;name&lt;/em&gt;, &lt;em&gt;level&lt;/em&gt;)
+are snoozed for configured &lt;code&gt;message.default_snooze&lt;/code&gt; seconds.&lt;/p&gt;
+
+&lt;h4 id=&#34;available-parameters:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Available Parameters&lt;/h4&gt;
+
+&lt;p&gt;Some config items have alternatives which are specific to &lt;strong&gt;poloxy&lt;/strong&gt;.&lt;br /&gt;
+They are described in the table below:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Item&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Option&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;deliver.item.merger&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;PerItem&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Summarize alert items by unique (&lt;em&gt;address&lt;/em&gt;, &lt;em&gt;type&lt;/em&gt;, &lt;em&gt;group&lt;/em&gt;, &lt;em&gt;name&lt;/em&gt;) params of them&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;PerGroup&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Summarize by unique (&lt;em&gt;address&lt;/em&gt;, &lt;em&gt;type&lt;/em&gt;, &lt;em&gt;group&lt;/em&gt;) of alerts&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;PerAddress&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Summarize by unique (&lt;em&gt;address&lt;/em&gt;, &lt;em&gt;type&lt;/em&gt;) of alerts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;As for parameters of alert items, see &lt;a href=&#34;#http-api-to-send-alerts&#34;&gt;API description&lt;/a&gt; in latter section.&lt;/p&gt;
+
+&lt;h3 id=&#34;database-schema:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Database Schema&lt;/h3&gt;
+
+&lt;p&gt;Database schema is bundled under &lt;code&gt;db/migrate/&lt;/code&gt; directory in the repository.&lt;br /&gt;
+And migration task is defined in &lt;code&gt;Rakefile&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;rake db:migrate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then you will get prepared with &lt;code&gt;poloxy&lt;/code&gt; database.&lt;/p&gt;
+
+&lt;p&gt;NOTE:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You should prepare &lt;code&gt;database.connect&lt;/code&gt; parameter in configuration file beforehand.&lt;/li&gt;
+&lt;li&gt;Run &lt;code&gt;rake db:reset&lt;/code&gt; to destroy &lt;code&gt;poloxy&lt;/code&gt; database.&lt;/li&gt;
+&lt;li&gt;Your database adapter such as &lt;a href=&#34;https://rubygems.org/gems/mysql2&#34;&gt;mysql2&lt;/a&gt; is not included in Gemfile.
+So &lt;code&gt;bundle exec db:*&lt;/code&gt; will fail unless you use SQLite3.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;run-poloxy-server:b6885e1f85551f51a4707c402f8200a3&#34;&gt;Run &amp;ldquo;poloxy&amp;rdquo; Server&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;# Start Web/API
+bin/poloxy-webapi
+
+# Start Worker
+bin/poloxy-worker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Web/API server runs at port 4567 by default.&lt;/p&gt;
+
+&lt;p&gt;Access server on your browser and you will see &lt;strong&gt;poloxy dashboard&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then, let&amp;rsquo;s go on to &lt;a href=&#34;usage&#34;&gt;How to use Poloxy&lt;/a&gt; to send alerts to &lt;strong&gt;poloxy&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to use Poloxy</title>
+      <link>http://key-amb.github.io/poloxy-doc/usage/</link>
+      <pubDate>Sat, 14 May 2016 15:01:24 +0900</pubDate>
+      
+      <guid>http://key-amb.github.io/poloxy-doc/usage/</guid>
+      <description>
+
+&lt;h2 id=&#34;http-api-to-send-alerts:dc32fe45042973266ca60588597e0b66&#34;&gt;HTTP API to send alerts&lt;/h2&gt;
+
+&lt;p&gt;Endpoint: &lt;code&gt;POST /v1/item&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Parameters:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Key&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Type&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Default&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Name of alert. Used for message title. Should be unique in &lt;em&gt;&amp;ldquo;group&amp;rdquo;&lt;/em&gt; to distinguish from others.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;group&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;default&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Group to categorize alerts. Nested groups are supported with delimiter &lt;code&gt;/&lt;/code&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;level&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;Integer&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Alert level. Higher is severer. Recommended to be lower than 10.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;type&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Method to deliver message to recipients&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;address&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Recipient address&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;message&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;String&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Message body of alert&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;misc&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;JSON&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;-&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Additional parameters for message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;available-delivery-types:dc32fe45042973266ca60588597e0b66&#34;&gt;Available Delivery Types&lt;/h3&gt;
+
+&lt;h4 id=&#34;slack:dc32fe45042973266ca60588597e0b66&#34;&gt;&lt;code&gt;Slack&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Extends &lt;code&gt;HttpPost&lt;/code&gt; to convert &lt;code&gt;message.body&lt;/code&gt; to JSON format which is suitable for
+&lt;a href=&#34;https://api.slack.com/incoming-webhooks&#34;&gt;Slack Incoming WebHooks API&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id=&#34;mail:dc32fe45042973266ca60588597e0b66&#34;&gt;&lt;code&gt;Mail&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Sends e-mail through configured SMTP server.&lt;br /&gt;
+This type treats &lt;code&gt;message.address&lt;/code&gt; as &lt;em&gt;mail-to&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can add some additional parameters as &lt;code&gt;misc&lt;/code&gt; contents:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;key&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;example&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;mail.from&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;&amp;quot;foo@example.com&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;From of mail&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;mail.cc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;&amp;quot;foo@example.com,bar@example.com&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Cc of mail&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;mail.bcc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;&lt;code&gt;&amp;quot;foo@example.com,bar@example.com&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Bcc of mail&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;httppost:dc32fe45042973266ca60588597e0b66&#34;&gt;&lt;code&gt;HttpPost&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;Raw HTTP POST method which posts &lt;code&gt;message.body&lt;/code&gt; as request body.&lt;/p&gt;
+
+&lt;h3 id=&#34;examples-of-curl-requests:dc32fe45042973266ca60588597e0b66&#34;&gt;Examples of cURL Requests&lt;/h3&gt;
+
+&lt;p&gt;Slack:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST http://poloxy.yourdomain.com/v1/item -d &#39;{
+    &amp;quot;name&amp;quot;: &amp;quot;CPU&amp;quot;,
+    &amp;quot;group&amp;quot;: &amp;quot;generic/system-resource&amp;quot;,
+    &amp;quot;type&amp;quot;: &amp;quot;Slack&amp;quot;,
+    &amp;quot;level&amp;quot;: &amp;quot;3&amp;quot;,
+    &amp;quot;address&amp;quot;: &amp;quot;https://hooks.slack.com/services/XXXXXXXXXX&amp;quot;,
+    &amp;quot;message&amp;quot;: &amp;quot;CPU is WARNING 50%&amp;quot;
+}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Mail:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST http://poloxy.yourdomain.com/v1/item -d &#39;{
+    &amp;quot;name&amp;quot;: &amp;quot;Error Rate&amp;quot;,
+    &amp;quot;group&amp;quot;: &amp;quot;web/rails-app&amp;quot;,
+    &amp;quot;type&amp;quot;: &amp;quot;Mail&amp;quot;,
+    &amp;quot;level&amp;quot;: &amp;quot;5&amp;quot;,
+    &amp;quot;address&amp;quot;: &amp;quot;developers@yourdomain.com,admin@yourdomain.com&amp;quot;,
+    &amp;quot;message&amp;quot;: &amp;quot;Error Rate is Over 5%&amp;quot;,
+    &amp;quot;misc&amp;quot;: {
+        &amp;quot;mail&amp;quot;: {
+            &amp;quot;from&amp;quot;: &amp;quot;alert@yourdomain.com&amp;quot;,
+            &amp;quot;cc&amp;quot;: &amp;quot;support@yourdomain.com&amp;quot;,
+            &amp;quot;bcc&amp;quot;: &amp;quot;poloxy-ops@yourdomain.com&amp;quot;
+        }
+    }
+}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;cli:dc32fe45042973266ca60588597e0b66&#34;&gt;CLI&lt;/h2&gt;
+
+&lt;p&gt;You can use &lt;code&gt;bin/poloxy-cli&lt;/code&gt; for some manual tasks.&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code&gt;poloxy-cli help [command]&lt;/code&gt; to see usage.&lt;/p&gt;
+
+&lt;h3 id=&#34;purge-expired-data:dc32fe45042973266ca60588597e0b66&#34;&gt;Purge expired data&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# purge older than PERIOD
+poloxy-cli purge [--[t]ime=PERIOD]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Default &lt;code&gt;PERIOD&lt;/code&gt; is determined by config param &lt;code&gt;data.default_keep_period&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

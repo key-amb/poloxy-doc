@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://key-amb.github.io/poloxy-doc/</loc>
+    <lastmod>2016-05-14T14:48:15+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://key-amb.github.io/poloxy-doc/_index/</loc>
+    <lastmod>2016-05-14T14:48:15+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://key-amb.github.io/poloxy-doc/introduction/</loc>
+    <lastmod>2016-05-14T15:38:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://key-amb.github.io/poloxy-doc/getting-started/</loc>
+    <lastmod>2016-05-14T14:51:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://key-amb.github.io/poloxy-doc/usage/</loc>
+    <lastmod>2016-05-14T15:01:24+09:00</lastmod>
+  </url>
+  
+</urlset>

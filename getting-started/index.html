@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="alternate" href="/index.xml" type="application/rss+xml" title="poloxy">
+		<link rel="icon" href="http://key-amb.github.io/poloxy-doc/favicon.ico">
+		<title>Getting Started - poloxy</title>
+		
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/highlight/atelier-forest-dark.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/theme.css">
+		<link rel="stylesheet" href="http://key-amb.github.io/poloxy-doc/css/bootie-docs.css">
+	</head>
+
+<body role="document">
+
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://key-amb.github.io/poloxy-doc/">poloxy</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li ><a href="http://key-amb.github.io/poloxy-doc/">Home</a></li>
+			
+				
+				
+					
+					<li ><a href="http://key-amb.github.io/poloxy-doc/introduction">Intro</a></li>
+				
+					
+					<li class="active"><a href="http://key-amb.github.io/poloxy-doc/getting-started">Bootstrap</a></li>
+				
+					
+					<li ><a href="http://key-amb.github.io/poloxy-doc/usage">Usage</a></li>
+				
+			
+				
+				</ul>
+				
+				<form class="navbar-form navbar-left" role="search" action="https://www.google.co.jp/search" method="get">
+					<div class="input-group doc-search-form">
+						<input type="hidden" name="as_sitesearch" value="key-amb.github.io/poloxy-doc">
+						<input type="text" name="as_q" class="search-query doc-search-input-text" placeholder="Search Site">
+						<span class="input-group-addon input-group-btn doc-search-input-btn">
+							<button class="btn" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</nav>
+
+<div class="container">
+
+
+<div class="row">
+	<div class="col-sm-8 doc-main">
+		<main role="main">
+			<article>
+				<a id="title"></a>
+				<h1 class="doc-entry-title">Getting Started</h1>
+				<div class="doc-entry-meta">
+					<span><time datetime="2016-05-14">May 14, 2016</time></span>
+				</div>
+				<section>
+					
+
+<h2 id="prerequisites:b6885e1f85551f51a4707c402f8200a3">Prerequisites</h2>
+
+<ul>
+<li>Ruby &hellip; <em>v2.0.0</em> or later</li>
+<li>An RDBMS supported by <a href="https://github.com/jeremyevans/sequel">Sequel</a> ORM
+
+<ul>
+<li>Tested by SQLite3 and developed with MySQL. Hopefully other RDBs will do.</li>
+</ul></li>
+</ul>
+
+<h2 id="install:b6885e1f85551f51a4707c402f8200a3">Install</h2>
+
+<pre><code>gem install bundler
+git clone https://github.com/key-amb/poloxy.git
+cd poloxy
+bundle install
+</code></pre>
+
+<p>Or, you can get released revisions from <a href="https://github.com/key-amb/poloxy/releases">Releases</a>
+pages.</p>
+
+<h2 id="configure:b6885e1f85551f51a4707c402f8200a3">Configure</h2>
+
+<h3 id="configuration-file:b6885e1f85551f51a4707c402f8200a3">Configuration File</h3>
+
+<p>Default configuration file is <code>config/poloxy.toml</code>.<br />
+And this file is included in this repository as a sample.</p>
+
+<p>You can change its path by <code>POLOXY_CONFIG</code> environment variable.</p>
+
+<p>Here are configuration items:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Item</th>
+<th align="center">Type</th>
+<th align="center">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">log.level</td>
+<td align="center">String</td>
+<td align="center"><code>INFO</code></td>
+<td align="left">Log level for std-lib <code>Logger</code> class</td>
+</tr>
+
+<tr>
+<td align="left">log.rotate</td>
+<td align="center">String</td>
+<td align="center">-</td>
+<td align="left"><code>shift_age</code> param for <code>Logger#new</code></td>
+</tr>
+
+<tr>
+<td align="left">log.file</td>
+<td align="center">String</td>
+<td align="center">-</td>
+<td align="left">Path to log output file</td>
+</tr>
+
+<tr>
+<td align="left">deliver.min_interval</td>
+<td align="center">Period</td>
+<td align="center"><code>1 min</code></td>
+<td align="left">Minimum interval period to deliver summarized alerts to recipients</td>
+</tr>
+
+<tr>
+<td align="left">deliver.item.merger</td>
+<td align="center">String</td>
+<td align="center"><code>PerItem</code></td>
+<td align="left">Method to summarize alerts. See following section.</td>
+</tr>
+
+<tr>
+<td align="left">database.connect</td>
+<td align="center">Hash</td>
+<td align="center">-</td>
+<td align="left">Params to connect database. These params are passed to <code>Sequel#connect</code>.</td>
+</tr>
+
+<tr>
+<td align="left">smtp.host</td>
+<td align="center">String</td>
+<td align="center"><code>localhost</code></td>
+<td align="left">SMTP server address used for <code>Mail</code> delivery-type</td>
+</tr>
+
+<tr>
+<td align="left">smtp.port</td>
+<td align="center">Integer</td>
+<td align="center">25</td>
+<td align="left">SMTP server port used for <code>Mail</code> delivery-type</td>
+</tr>
+
+<tr>
+<td align="left">message.default_expire</td>
+<td align="center">Period</td>
+<td align="center"><code>2 hour</code></td>
+<td align="left">Period to expire alerts. Expired alerts are taken as &ldquo;CLEAR&rdquo;.</td>
+</tr>
+
+<tr>
+<td align="left">message.default_snooze</td>
+<td align="center">Period</td>
+<td align="center"><code>30 min</code></td>
+<td align="left">Period to snooze alerts. See following section.</td>
+</tr>
+
+<tr>
+<td align="left">data.default_keep_period</td>
+<td align="center">Period</td>
+<td align="center"><code>2 day</code></td>
+<td align="left">Default period to hold data</td>
+</tr>
+</tbody>
+</table>
+
+<p>As for type <em>Period</em>, natural time expressions are supported powered by
+<a href="https://github.com/hpoydar/chronic_duration">chronic_duration</a>.<br />
+Numeric expressions like <code>60</code> are taken as seconds.</p>
+
+<h4 id="alerts-snoozing:b6885e1f85551f51a4707c402f8200a3">Alerts Snoozing</h4>
+
+<p>When an alert occurs, subsequent alerts with the same (<em>group</em>, <em>name</em>, <em>level</em>)
+are snoozed for configured <code>message.default_snooze</code> seconds.</p>
+
+<h4 id="available-parameters:b6885e1f85551f51a4707c402f8200a3">Available Parameters</h4>
+
+<p>Some config items have alternatives which are specific to <strong>poloxy</strong>.<br />
+They are described in the table below:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Item</th>
+<th align="center">Option</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">deliver.item.merger</td>
+<td align="center"><code>PerItem</code></td>
+<td align="left">Summarize alert items by unique (<em>address</em>, <em>type</em>, <em>group</em>, <em>name</em>) params of them</td>
+</tr>
+
+<tr>
+<td align="left"></td>
+<td align="center"><code>PerGroup</code></td>
+<td align="left">Summarize by unique (<em>address</em>, <em>type</em>, <em>group</em>) of alerts</td>
+</tr>
+
+<tr>
+<td align="left"></td>
+<td align="center"><code>PerAddress</code></td>
+<td align="left">Summarize by unique (<em>address</em>, <em>type</em>) of alerts</td>
+</tr>
+</tbody>
+</table>
+
+<p>As for parameters of alert items, see <a href="#http-api-to-send-alerts">API description</a> in latter section.</p>
+
+<h3 id="database-schema:b6885e1f85551f51a4707c402f8200a3">Database Schema</h3>
+
+<p>Database schema is bundled under <code>db/migrate/</code> directory in the repository.<br />
+And migration task is defined in <code>Rakefile</code>.</p>
+
+<p>Run:</p>
+
+<pre><code>rake db:migrate
+</code></pre>
+
+<p>Then you will get prepared with <code>poloxy</code> database.</p>
+
+<p>NOTE:</p>
+
+<ul>
+<li>You should prepare <code>database.connect</code> parameter in configuration file beforehand.</li>
+<li>Run <code>rake db:reset</code> to destroy <code>poloxy</code> database.</li>
+<li>Your database adapter such as <a href="https://rubygems.org/gems/mysql2">mysql2</a> is not included in Gemfile.
+So <code>bundle exec db:*</code> will fail unless you use SQLite3.</li>
+</ul>
+
+<h2 id="run-poloxy-server:b6885e1f85551f51a4707c402f8200a3">Run &ldquo;poloxy&rdquo; Server</h2>
+
+<pre><code># Start Web/API
+bin/poloxy-webapi
+
+# Start Worker
+bin/poloxy-worker
+</code></pre>
+
+<p>Web/API server runs at port 4567 by default.</p>
+
+<p>Access server on your browser and you will see <strong>poloxy dashboard</strong>.</p>
+
+<p>Then, let&rsquo;s go on to <a href="usage">How to use Poloxy</a> to send alerts to <strong>poloxy</strong>.</p>
+
+				</section>
+			</article>
+		</main>
+	</div> 
+
+	
+
+<div class="col-sm-3 col-sm-offset-1 doc-sidebar">
+	<div id="sidebar">
+	<div class="sidebar-module">
+		<div class="sidebar-toc">
+			<h4 class="sidebar-heading">Table of Contents</h4>
+			<ul>
+				<li><strong><a href="#title">Getting Started</a></strong></li>
+			</ul>
+			<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#prerequisites:b6885e1f85551f51a4707c402f8200a3">Prerequisites</a></li>
+<li><a href="#install:b6885e1f85551f51a4707c402f8200a3">Install</a></li>
+<li><a href="#configure:b6885e1f85551f51a4707c402f8200a3">Configure</a>
+<ul>
+<li><a href="#configuration-file:b6885e1f85551f51a4707c402f8200a3">Configuration File</a>
+<ul>
+<li><a href="#alerts-snoozing:b6885e1f85551f51a4707c402f8200a3">Alerts Snoozing</a></li>
+<li><a href="#available-parameters:b6885e1f85551f51a4707c402f8200a3">Available Parameters</a></li>
+</ul></li>
+<li><a href="#database-schema:b6885e1f85551f51a4707c402f8200a3">Database Schema</a></li>
+</ul></li>
+<li><a href="#run-poloxy-server:b6885e1f85551f51a4707c402f8200a3">Run &ldquo;poloxy&rdquo; Server</a></li>
+</ul></li>
+</ul>
+</nav>
+		</div>
+	</div>
+	<div class="sidebar-module">
+		<h4 class="sidebar-heading">Pages in Categories</h4>
+		<ul class="sidebar-category-list">
+		
+			<li>
+				<a href="http://key-amb.github.io/poloxy-doc/categories/general">
+					<span class="doc-list-category">General</span>
+				</a>
+				<ul>
+					<li><a href="/poloxy-doc/introduction/">Introduction</a>
+					</li>
+				
+					<li>
+						<span class="active">Getting Started</span>
+						</li>
+				
+					<li><a href="/poloxy-doc/usage/">How to use Poloxy</a>
+					</li>
+				
+				</ul>
+			</li>
+		
+		</ul>
+	</div>
+	<div class="sidebar-module">
+		<h4 class="sidebar-heading">Tags</h4>
+		<div class="tag-box">
+		
+			<a class="tag-item" href="http://key-amb.github.io/poloxy-doc/tags/document">document</a>
+		
+		</div>
+	</div>
+	</div>
+</div>
+
+</div> 
+
+
+<hr />
+
+<div class="row">
+	<div class="col-sm-8">
+		<p class="doc-footer-em"><a href="#" onclick="resetSidebarPos()">Back to TOP</a></p>
+	</div>
+</div>
+
+</div> 
+
+<footer class="doc-footer">
+	<p class="doc-footer-em">Browse <strong><a href="https://github.com/key-amb/poloxy/">Repository</a></strong></p>
+	<p>Copyright (c) 2016, YASUTAKE Kiyoshi; All rights reserved.</p>
+	<p>Powered by <strong><a href="https://github.com/key-amb/hugo-theme-bootie-docs">Bootie Docs</a></strong> - theme for <a href="http://gohugo.io/">Hugo</a> by <a href="https://github.com/key-amb/">key-amb</a>.</p>
+</footer>
+
+
+
+<script src="http://key-amb.github.io/poloxy-doc/js/jquery.min.js"></script>
+<script src="http://key-amb.github.io/poloxy-doc/js/bootstrap.min.js"></script>
+
+<script src="http://key-amb.github.io/poloxy-doc/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="http://key-amb.github.io/poloxy-doc/js/ie10-viewport-bug-workaround.js"></script>
+<script src="http://key-amb.github.io/poloxy-doc/js/bootie-docs.js"></script>
+
+</body>
+</html>
