@@ -17,12 +17,12 @@ title = "Getting Started"
 
 ```
 gem install bundler
-git clone https://github.com/key-amb/poloxy.git
+git clone https://github.com/progrhyme/poloxy.git
 cd poloxy
 bundle install
 ```
 
-Or, you can get released revisions from [Releases](https://github.com/key-amb/poloxy/releases)
+Or, you can get released revisions from [Releases](https://github.com/progrhyme/poloxy/releases)
 pages.
 
 ## Configure

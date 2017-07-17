@@ -1,5 +1,5 @@
 # poloxy-doc
 
-Documentation site of [poloxy](https://github.com/key-amb/poloxy).
+Documentation site of [poloxy](https://github.com/progrhyme/poloxy).
 
-Powered by [Hugo](http://gohugo.io/) with theme [Bootie-Docs](https://github.com/key-amb/hugo-theme-bootie-docs).
+Powered by [Hugo](http://gohugo.io/) with theme [Bootie-Docs](https://github.com/progrhyme/hugo-theme-bootie-docs).

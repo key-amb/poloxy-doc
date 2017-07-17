@@ -7,7 +7,7 @@ title = "_index"
 Welcome to **poloxy** documentation site!
 
 **Poloxy** is server-side proxy software for delivering system alerts.  
-The project is public on [GitHub](https://github.com/key-amb/poloxy).
+The project is public on [GitHub](https://github.com/progrhyme/poloxy).
 
 ## Contents of Documentation
 
@@ -18,10 +18,10 @@ The project is public on [GitHub](https://github.com/key-amb/poloxy).
 
 ## Authors
 
-YASUTAKE Kiyoshi <yasutake.kiyoshi@gmail.com>
+IKEDA Kiyoshi <progrhyme@gmail.com>
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016 YASUTAKE Kiyoshi
+Copyright (c) 2016-2017 IKEDA Kiyoshi

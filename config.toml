@@ -1,25 +1,28 @@
-baseurl = "http://key-amb.github.io/poloxy-doc"
+baseurl = "https://progrhyme.github.io/poloxy-doc"
 languageCode = "en-us"
 title = "poloxy"
 theme = "bootie-docs"
-copyright = "Copyright (c) 2016, YASUTAKE Kiyoshi; All rights reserved."
+copyright = "Copyright (c) 2016-2017, IKEDA Kiyoshi; All rights reserved."
 
 [params]
   description = "Buffering proxy system for alerting"
   #withSitePosts = true
-  searchDomain = "key-amb.github.io/poloxy-doc"
+  searchDomain = "progrhyme.github.io/poloxy-doc"
   noCategoryLink = true
-  repositoryUrl = "https://github.com/key-amb/poloxy/"
+  repositoryUrl = "https://github.com/progrhyme/poloxy/"
   highlightStyle = "atelier-forest-dark"
 
-[[params.mainMenu]]
-  name = "Intro"
-  link = "introduction"
+[[menu.main]]
+  name   = "Intro"
+  url    = "/introduction/"
+  weight = 20
 
-[[params.mainMenu]]
-  name = "Bootstrap"
-  link = "getting-started"
+[[menu.main]]
+  name   = "Bootstrap"
+  url    = "/getting-started/"
+  weight = 30
 
-[[params.mainMenu]]
-  name = "Usage"
-  link = "usage"
+[[menu.main]]
+  name   = "Usage"
+  url    = "/usage/"
+  weight = 40

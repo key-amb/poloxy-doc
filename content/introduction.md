@@ -18,7 +18,7 @@ The image bellow illustrates the concept of **"poloxy"**.
 It prevents bursting alerts flood to recipients' phones or any devices.
 
 <div align="center" style="border: 2px solid #aaa; padding: 10px;">
-<img src="https://raw.githubusercontent.com/key-amb/poloxy/resource/image/concept.png" alt="poloxy-concept">
+<img src="https://raw.githubusercontent.com/progrhyme/poloxy/resource/image/concept.png" alt="poloxy-concept">
 </div>
 
 ## Components
@@ -44,7 +44,7 @@ In [Nishi-Nippori.rb](https://nishinipporirb.doorkeeper.jp/).
 
 <div align="center">
 <a href="http://www.slideshare.net/YasutakeKiyoshi/introduction-to-poloxy-proxy-for-alerting" target="_blank">
-<img src="https://raw.githubusercontent.com/key-amb/poloxy/resource/image/ninirb_20160428-screenshot.png" alt="ninirb_20160428-screenshot">
+<img src="https://raw.githubusercontent.com/progrhyme/poloxy/resource/image/ninirb_20160428-screenshot.png" alt="ninirb_20160428-screenshot">
 </a>
 </div>
 
