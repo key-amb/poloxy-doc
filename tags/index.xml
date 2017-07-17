@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on poloxy</title>
+    <link>https://progrhyme.github.io/poloxy-doc/tags/</link>
+    <description>Recent content in Tags on poloxy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2016-2017, IKEDA Kiyoshi; All rights reserved.</copyright>
+    <lastBuildDate>Sat, 14 May 2016 15:38:27 +0900</lastBuildDate>
+    
+	<atom:link href="https://progrhyme.github.io/poloxy-doc/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Document</title>
+      <link>https://progrhyme.github.io/poloxy-doc/tags/document/</link>
+      <pubDate>Sat, 14 May 2016 15:38:27 +0900</pubDate>
+      
+      <guid>https://progrhyme.github.io/poloxy-doc/tags/document/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
