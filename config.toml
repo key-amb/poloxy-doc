@@ -1,4 +1,4 @@
-baseurl = "https://progrhyme.github.io/poloxy-doc"
+baseurl = "https://progrhy.me/poloxy-doc"
 languageCode = "en-us"
 title = "poloxy"
 theme = "bootie-docs"
