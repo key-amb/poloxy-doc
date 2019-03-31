@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on poloxy</title>
-    <link>https://progrhyme.github.io/poloxy-doc/categories/</link>
+    <link>https://progrhy.me/poloxy-doc/categories/</link>
     <description>Recent content in Categories on poloxy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2016-2017, IKEDA Kiyoshi; All rights reserved.</copyright>
     
-	<atom:link href="https://progrhyme.github.io/poloxy-doc/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://progrhy.me/poloxy-doc/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>General</title>
-      <link>https://progrhyme.github.io/poloxy-doc/categories/general/</link>
+      <link>https://progrhy.me/poloxy-doc/categories/general/</link>
       <pubDate>Sat, 14 May 2016 15:38:27 +0900</pubDate>
       
-      <guid>https://progrhyme.github.io/poloxy-doc/categories/general/</guid>
+      <guid>https://progrhy.me/poloxy-doc/categories/general/</guid>
       <description></description>
     </item>
     

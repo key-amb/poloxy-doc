@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>_index on poloxy</title>
-    <link>https://progrhyme.github.io/poloxy-doc/</link>
+    <link>https://progrhy.me/poloxy-doc/</link>
     <description>Recent content in _index on poloxy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2016-2017, IKEDA Kiyoshi; All rights reserved.</copyright>
     <lastBuildDate>Sat, 14 May 2016 14:48:15 +0900</lastBuildDate>
     
-	<atom:link href="https://progrhyme.github.io/poloxy-doc/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://progrhy.me/poloxy-doc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Introduction</title>
-      <link>https://progrhyme.github.io/poloxy-doc/introduction/</link>
+      <link>https://progrhy.me/poloxy-doc/introduction/</link>
       <pubDate>Sat, 14 May 2016 15:38:27 +0900</pubDate>
       
-      <guid>https://progrhyme.github.io/poloxy-doc/introduction/</guid>
+      <guid>https://progrhy.me/poloxy-doc/introduction/</guid>
       <description>Concept of &amp;ldquo;poloxy&amp;rdquo; The image bellow illustrates the concept of &amp;ldquo;poloxy&amp;rdquo;.
  API receives alerts from monitoring systems and enqueues them. Worker summarizes alerts. Worker delivers them to recipients.  It prevents bursting alerts flood to recipients&amp;rsquo; phones or any devices.
  Components  API  Receives alerts from monitoring systems and enqueues them  Worker  Dequeues alerts, summarizes them and delivers them to recipients  Web Dashboard  Viewer for incoming alerts and delivered notifications One can check original alerts on this dashboard Integrated with API  CLI  Utility tool for manual tasks such as data purge   Public Resources Presentations 2016 Apr.</description>
@@ -25,10 +25,10 @@
     
     <item>
       <title>Getting Started</title>
-      <link>https://progrhyme.github.io/poloxy-doc/getting-started/</link>
+      <link>https://progrhy.me/poloxy-doc/getting-started/</link>
       <pubDate>Sat, 14 May 2016 14:51:40 +0900</pubDate>
       
-      <guid>https://progrhyme.github.io/poloxy-doc/getting-started/</guid>
+      <guid>https://progrhy.me/poloxy-doc/getting-started/</guid>
       <description>Prerequisites  Ruby &amp;hellip; v2.0.0 or later An RDBMS supported by Sequel ORM  Tested by SQLite3 and developed with MySQL. Hopefully other RDBs will do.   Install gem install bundler git clone https://github.com/progrhyme/poloxy.git cd poloxy bundle install  Or, you can get released revisions from Releases pages.
 Configure Configuration File Default configuration file is config/poloxy.toml.
 And this file is included in this repository as a sample.
@@ -37,10 +37,10 @@ You can change its path by POLOXY_CONFIG environment variable.</description>
     
     <item>
       <title>How to use Poloxy</title>
-      <link>https://progrhyme.github.io/poloxy-doc/usage/</link>
+      <link>https://progrhy.me/poloxy-doc/usage/</link>
       <pubDate>Sat, 14 May 2016 15:01:24 +0900</pubDate>
       
-      <guid>https://progrhyme.github.io/poloxy-doc/usage/</guid>
+      <guid>https://progrhy.me/poloxy-doc/usage/</guid>
       <description>HTTP API to send alerts Endpoint: POST /v1/item
 Parameters:
    Key Type Default Description     name String - Name of alert. Used for message title. Should be unique in &amp;ldquo;group&amp;rdquo; to distinguish from others.   group String default Group to categorize alerts. Nested groups are supported with delimiter /.   level Integer 1 Alert level. Higher is severer. Recommended to be lower than 10.</description>
